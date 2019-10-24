@@ -20,3 +20,9 @@ def index(req):
         services = Service.objects.all()
         print(services)
         return render(req, 'myapp/index.html', { 'services': services })
+
+def profile(req):
+    return render(req, 'myapp/profile.html')
+
+def Home(req):
+    return render(req, 'myapp/home.html')
