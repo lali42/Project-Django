@@ -23,4 +23,5 @@ urlpatterns = [
     path('index',appview.index),
     path('profile',appview.profile),
     path('home',appview.Home),
+    path('account',appview.account),
 ]

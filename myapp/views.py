@@ -22,7 +22,12 @@ def index(req):
         return render(req, 'myapp/index.html', { 'services': services })
 
 def profile(req):
-    return render(req, 'myapp/profile.html')
+    services = Service.objects.all()
+    print(services)
+    return render(req, 'myapp/profile.html',{ 'services': services })
 
 def Home(req):
     return render(req, 'myapp/home.html')
+
+def account(req):
+    return render(req, 'myapp/account.html')

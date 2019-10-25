@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Linux Services</title>
+    <title>Add Work</title>
 
     {% load static %}
     <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -25,62 +25,81 @@
       .spacing {
         padding: 1em;
       }
+      body {
+        background-color:#006D6D;
+      }
+      .colorfont {
+        color: white;
+      }
     </style>
   </head>
-  <body>
-    <nav> <h1> Linux Services Page </h1> </nav>
-    <div>
+  <body style="color: white;">
+    <br><br><br>
+    <center><nav> <h1 class="w3-jumbo w3-animate-top"> ADD WORK </h1> </nav></center><br><br>
+    <div><center>
       <section class="filled">
         <form action="index" method="POST" enctype="multipart/form-data;charset=UTF-8">
           {% csrf_token %}
-          <div class="spacing"><input class="filled" type="text" name="icon" value="icon ไอคอน"/></div>
-          <div class="spacing"><input class="filled" type="text" name="title" value="title บริการ"/></div>
-          <div class="spacing"><input class="filled" type="text" name="detail" value="detail รายละเอียด"/></div>
-          <div class="spacing"><button style="padding: 2em;" type="submit">Submit</button></div>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Add Work</span>
+              </div>
+              <input class="form-control" type="text" name="icon" value="เพิ่มงาน" aria-describedby="basic-addon1">
+            </div><br>
+
+          <!-- <div class="spacing"><input class="filled" type="text" name="icon" value="icon ไอคอน"/></div> -->
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Date</span>
+              </div>
+              <input class="form-control" type="text" name="title" value="Date Now" aria-describedby="basic-addon1">
+            </div><br>
+
+          <!-- <div class="spacing"><input class="filled" type="text" name="title" value="title บริการ"/></div> -->
+
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">Description</span>
+              </div>
+              <input class="form-control" type="text" name="detail" value="คำอธิบาย" aria-describedby="basic-addon1">
+            </div><br>
+
+          <!-- <div class="spacing"><input class="filled" type="text" name="detail" value="detail รายละเอียด"/></div> -->
+          <!-- <div class="spacing"><button style="padding: 2em;" type="submit">Submit</button></div> -->
+          <center><button class="btn btn-outline-light" type="submit">Submit</button></center>
         </form>
         
-      </section>
-      <div>
-       <table style="width:80%; border: 1px solid black; padding: 1em;">
-        <tr>
-          <th>Icon</th>
-          <th>Title</th>
-          <th>Detail</th>
-        </tr>
-        {% for s in services %}
-        <tr>
-          <td> <i class="fa {{s.icon}}"></i> {{ s.icon }}</td>
-          <td>{{ s.title }}</td>
-          <td>{{ s.detail }}</td>
-        </tr>
-        {% endfor %}
-      </table>
 
+      </section>
+      <div style="margin: 50px;">   
       <table class="table table-sm">
-          <thead>
-            <tr>
+          <thead class="colorfont">
+              <tr>
               <th scope="col">Title</th>
               <th scope="col">Date</th>
               <th scope="col">Discestion</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-          </tbody>
+          <tbody class="colorfont">
+              {% for s in services %}
+              <tr>
+                <td> <i class="fa {{s.icon}}"></i> {{ s.icon }}</td>
+                <td>{{ s.title }}</td>
+                <td>{{ s.detail }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
         </table>
-
-      </div>
+      </div></center>
     </div>
-    <a href="profile"><div class="spacing"><button style="padding: 2em;" type="submit" >Profile</button></div></a>
+    <center><a href="profile"><button class="btn btn-secondary btn-lg btn-block" style="width: 92.5%;" type="submit" >Profile</button></a></center>
     <footer>
       <div>
         <div>Copyright &copy; 2019 </div>
       </div>
     </footer>
+  
   </body>
 
 </html>
